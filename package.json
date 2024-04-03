@@ -1,0 +1,14 @@
+{
+  "name": "api-nodejs-exercise",
+  "version": "1.0.0",
+  "description": "Api NodeJS exercise of Explorer course at RocketSeat Tech School.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brenno Eudes - Developer",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
