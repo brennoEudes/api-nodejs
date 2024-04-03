@@ -1,22 +1,10 @@
 const express = require("express");
+const routes = require("./routes")
 
 const app = express();
 
 app.use(express.json());
-
-// Routes:
-app.get("/movies", (req, res) => {
-  const { id } = req.query;
-
-  res.send(`The movie id is ${id}!`);
-});
-
-app.post("/users", (req, res) => {
-  const { name, email, password } = req.body;
-
-  res.json({ name, email, password });
-});
-
+app.use(routes);
 
 const PORT = 3000;
 
