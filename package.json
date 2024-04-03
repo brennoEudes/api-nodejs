@@ -4,11 +4,12 @@
   "description": "Api NodeJS exercise of Explorer course at RocketSeat Tech School.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server.js" 
+    "start": "node ./src/server.js"
   },
   "author": "Brenno Eudes - Developer",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
   }
 }
