@@ -11,7 +11,11 @@ app.get("/movies", (req, res) => {
   res.send(`The movie id is ${id}!`);
 });
 
+app.post("/users", (req, res) => {
+  const { name, email, password } = req.body;
 
+  res.json({ name, email, password });
+});
 
 const PORT = 3000;
 
