@@ -1,3 +1,5 @@
+require("express-async-errors"); // precisa ser aqui no início de tudo!
+
 const express = require("express");
 const routes = require("./routes");
 const AppError = require("./utils/AppError");
