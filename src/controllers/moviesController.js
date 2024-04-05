@@ -2,7 +2,7 @@ const { response } = require("express");
 const knex = require("../database/knex");
 
 class MovieNotesController {
-  //CRIAR
+  //CREATE
   async create(req, res) {
     const { title, description, rating, movie_tags } = req.body;
     const { user_id } = req.params;
@@ -14,7 +14,7 @@ class MovieNotesController {
       user_id,
     });
 
-    // recebendo obj c/ 2 tags:
+    // recebendo obj c/ tags:
     const movieTagsInsert = movie_tags.map((name) => {
       return {
         note_id,
@@ -26,6 +26,21 @@ class MovieNotesController {
     await knex("movie_tags").insert(movieTagsInsert);
 
     return res.status(201).json("Movie notes created sucessfully!");
+  }
+
+  // READ (specific id)
+  async read(req, res) {
+    const { id } = req.params;
+
+    const movieNote = await knex("movie_notes").where({ id }).first(); // buscando nota pelo id e somente uma.
+    const movieTags = await knex("movie_tags")
+      .where({ note_id: id }) // buscando tag por pelo id e em ordem alfabética
+      .orderBy("name");
+
+    return res.status(201).json({
+      ...movieNote,
+      movieTags,
+    });
   }
 }
 
