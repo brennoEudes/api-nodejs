@@ -84,19 +84,19 @@ class MovieNotesController {
         .orderBy("title");
     }
 
-    // const userMovieTags = await knex("movie_tags").where({ user_id });
-    // const movieNotesWithTags = allMovieNotes.map((note) => {
-    //   const movieNoteTags = userMovieTags.filter(
-    //     (tag) => tag.note_id === note.id
-    //   );
+    const userMovieTags = await knex("movie_tags").where({ user_id });
+    const movieNotesWithTags = allMovieNotes.map((note) => {
+      const movieNoteTags = userMovieTags.filter(
+        (tag) => tag.note_id === note.id
+      );
 
-    //   return {
-    //     ...note,
-    //     movie_tags: movieNoteTags
-    //   }
-    // });
+      return {
+        ...note,
+        movie_tags: movieNoteTags,
+      };
+    });
 
-    return res.status(201).json({ allMovieNotes });
+    return res.status(201).json({ movieNotesWithTags });
   }
 }
 
